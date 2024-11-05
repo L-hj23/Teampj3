@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS 및 Bootstrap Icons 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>teamPJ</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light text-center py-3">
+        <h1 class="fw-bold">프로젝트 이름</h1>
+    </header>
+    
+    <main class="container my-4">
+        <nav class="d-flex align-items-center justify-content-center gap-3">
+            <span class="btn btn-outline-secondary">◀</span>
+            <ul class="nav">
+                <li class="nav-item" onClick="clickSubject('강의')">
+                    <a class="nav-link btn btn-light" href="#">강의</a>
+                </li>
+                <li class="nav-item" onClick="clickSubject('교제 판매')">
+                    <a class="nav-link btn btn-light" href="#">교재 판매</a>
+                </li>
+                <li class="nav-item" onClick="clickSubject('나만의 공부TIP')">
+                    <a class="nav-link btn btn-light" href="#">나만의 공부TIP</a>
+                </li>
+                <li class="nav-item" onClick="clickSubject('질의 응답')">
+                    <a class="nav-link btn btn-light" href="#">질의 응답</a>
+                </li>
+                
+              
+            </ul>
+            <span class="btn btn-outline-secondary">▶</span>
+        </nav>
+
+        <!-- Study Tips Section -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">나만의 공부 팁</h2>
+        </section>
+    </main>
+    
+    <!-- Text Editor Section -->
+    <div class="container editor-container mb-5">
+        <form action="#" method="post">
+            <!-- 제목 입력 -->
+            <div class="mb-3">
+                <input type="text" class="form-control" name="title" placeholder="제목을 입력해 주세요." required>
+            </div>
+            
+          
+        
+                <!-- Advanced Toolbar -->
+                <div class="toolbar d-flex flex-wrap gap-2 mb-3">
+                    <button type="button" class="btn btn-outline-primary" onclick="formatText('bold')">
+                        <i class="bi bi-type-bold"></i> 굵게
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" onclick="formatText('italic')">
+                        <i class="bi bi-type-italic"></i> 기울임
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" onclick="formatText('underline')">
+                        <i class="bi bi-type-underline"></i> 밑줄
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" onclick="formatText('strikeThrough')">
+                        <i class="bi bi-type-strikethrough"></i> 취소선
+                    </button>
+        
+                    <button type="button" class="btn btn-outline-secondary" onclick="insertElement('image')">
+                        <i class="bi bi-card-image"></i> 이미지
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="insertElement('file')">
+                        <i class="bi bi-paperclip"></i> 파일
+                    </button>
+        
+                    <button type="button" class="btn btn-outline-info" onclick="formatText('justifyLeft')">
+                        <i class="bi bi-text-left"></i> 왼쪽 정렬
+                    </button>
+                    <button type="button" class="btn btn-outline-info" onclick="formatText('justifyCenter')">
+                        <i class="bi bi-text-center"></i> 가운데 정렬
+                    </button>
+                    <button type="button" class="btn btn-outline-info" onclick="formatText('justifyRight')">
+                        <i class="bi bi-text-right"></i> 오른쪽 정렬
+                    </button>
+        
+                    <button type="button" class="btn btn-outline-success" onclick="insertElement('quote')">
+                        <i class="bi bi-chat-quote"></i> 인용구
+                    </button>
+                    <button type="button" class="btn btn-outline-success" onclick="insertElement('divider')">
+                        <i class="bi bi-dash-lg"></i> 구분선
+                    </button>
+        
+                    <button type="button" class="btn btn-outline-dark" onclick="insertElement('link')">
+                        <i class="bi bi-link-45deg"></i> 링크
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" onclick="insertElement('table')">
+                        <i class="bi bi-table"></i> 표
+                    </button>
+                </div>
+        
+                <!-- Content Editor -->
+                <div id="editor" contenteditable="true" class="border p-3" style="height: 300px;">
+                    여기에 내용을 작성하세요...
+                </div>
+            
+            <!-- 태그 입력 -->
+            <div class="mb-3">
+                <input type="text" class="form-control" name="tags" placeholder="#태그를 입력해 주세요 (최대 10개)">
+            </div>
+
+            <!-- 제출 버튼 -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">작성 완료</button>
+            </div>
+        </form>
+    </div>
+
+   
+   
+    </div>
+    <footer class="bg-light text-center py-3 mt-5">
+        <p class="mb-0">team project</p>
+    </footer>
+    <script>
+        function formatText(command) {
+            document.execCommand(command, false, null);
+        }
+
+        function insertElement(type) {
+            if (type === 'image') {
+                const url = prompt("이미지 URL을 입력하세요:");
+                if (url) document.execCommand('insertImage', false, url);
+            } else if (type === 'file') {
+                alert("파일 첨부 기능은 추가 작업이 필요합니다.");
+            } else if (type === 'quote') {
+                const text = prompt("인용구를 입력하세요:");
+                if (text) document.execCommand('insertHTML', false, `<blockquote>${text}</blockquote>`);
+            } else if (type === 'divider') {
+                document.execCommand('insertHorizontalRule');
+            } else if (type === 'link') {
+                const url = prompt("링크 URL을 입력하세요:");
+                if (url) document.execCommand('createLink', false, url);
+            } else if (type === 'table') {
+                const rows = prompt("행 개수를 입력하세요:", "2");
+                const cols = prompt("열 개수를 입력하세요:", "2");
+                if (rows > 0 && cols > 0) {
+                    let table = "<table border='1' style='width:100%;'><tbody>";
+                    for (let i = 0; i < rows; i++) {
+                        table += "<tr>";
+                        for (let j = 0; j < cols; j++) {
+                            table += "<td>셀</td>";
+                       
+                        }
+                        table += "</tr>";
+                    }
+                    table += "</tbody></table>";
+                    document.execCommand('insertHTML', false, table);
+                }
+            }
+        }
+    </script>
+
+    <!-- Bootstrap JS & Icons 추가 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>  

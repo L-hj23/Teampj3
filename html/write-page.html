@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>teamPJ</title>
+    <style>
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 3px;
+            font-size: 30px;
+            margin-right: 5px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 45px;
+        }
+
+        li:hover {
+            background-color: ghostwhite;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-light text-center py-5">
+        <h1>학습 강의 관리</h1>
+    </header>
+
+    <main class="container my-4">
+        <form class="mx-auto" id="lectureForm">
+            <div class="form-floating mt-5 mb-3">
+              <input class="form-control" style="height: 75px; font-size: 20px;" id="lectureMainTitle" type="text">
+              <label for="lectureMainTitle">강의 제목</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input class="form-control" style="height: 75px; font-size: 20px;" id="lectureSubTitle" type="text">
+              <label for="lectureSubTitle">강의 부제목</label>
+            </div>
+            <div class="form-floating mb-3">
+              <select class="form-select" style="height: 75px; font-size: 20px;" id="lectureSubject" aria-label="">
+                <option value="">-</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JAVASCRIPT</option>
+                <option value="c">C</option>
+                <option value="java">JAVA</option>
+                <option value="python">PYTHON</option>
+              </select>
+              <label for="subject">강의 과목</label>
+            </div>
+            <div class="border p-1 mb-3 rounded" style="height: 60px;">
+              <ul class="d-flex justify-content-center align-items-center">
+                <li id="size" style="font-size: 17px; font-weight: 600;">20px</li>
+                <li id="color">■</li>
+                <li id="weight" onclick="formatText('bold')"><i class="bi bi-type-bold"></i></li>
+                <li id="italic"><i class="bi bi-type-italic"></i></li>
+                <li id="decoration"><i class="bi bi-type-underline"></i></li>
+                <li id="left"><i class="bi bi-text-left"></i></li>
+                <li id="center"><i class="bi bi-text-center"></i></li>
+                <li id="right" onclick="formatText('justifyRight')"><i class="bi bi-text-right"></i></li>
+                <li id="image"><i class="bi bi-card-image"></i></li>
+                <li id="link"><i class="bi bi-link"></i></li>
+              </ul>
+            </div>
+            <div class="form-floating mb-3">
+              <div class="form-control overflow-y-auto" style="min-height: 700px; resize: none; font-size: 20px;" id="lectureContent" contenteditable="true"></div>
+              <label for="lectureContent">강의 소개</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input class="form-control" style="height: 75px; font-size: 20px;" id="lecturePrice" type="number" required>
+              <label for="lecturePrice">강의 가격</label>
+            </div>
+            <div class="input-group mb-3" style="height: 75px;">
+              <span class="input-group-text bg-white" style="width: 125px;">강의 썸네일</span>
+              <div class="d-flex align-items-center form-control bg-light" id="lectureImageInfo"></div>
+              <button onclick="clickBtnUpload('imageInput')" class="border text-center rounded-end bg-white" style="width: 60px;" type="button" id="btnUploadLectureImage">
+                <i class="bi bi-upload" style="font-size: 30px; line-height: 75px;"></i>
+              </button>
+              <input type="file" class="d-none" id="imageInput" accept="image/*" required>
+            </div>
+            <div class="input-group mb-5" style="height: 75px;">
+              <span class="input-group-text bg-white" style="width: 125px;">강의 동영상</span>
+              <div class="d-flex align-items-center form-control bg-light" id="lectureVideoInfo"></div>
+              <button onclick="clickBtnUpload('videoInput')" class="border text-center rounded-end bg-white" style="width: 60px;" type="button" id="btnUploadLectureVideo">
+                <i class="bi bi-upload" style="font-size: 30px; line-height: 75px;"></i>
+              </button>
+              <input type="file" class="d-none" id="videoInput" accept="video/*" required>
+            </div>
+            <div class="d-flex justify-content-center gap-3 mb-5">
+              <button class="btn btn-dark fs-5" style="width: 100px;" id="btnSubmit" type="button">등록</button>
+              <button class="btn btn-secondary fs-5" style="width: 100px;" id="btnCancle" type="button" data-bs-toggle="modal" data-bs-target="#cancleModalForm">취소</button>
+            </div>
+        </form>
+
+        <div class="modal fade" id="checkPriceModalForm" tabindex="-1" aria-labelledby="checkPriceModalFormLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="checkPriceModalFormLabel">등록 실패</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      강의의 가격을 올바르게 설정해주세요. (ex.0 / 10000)
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="btnCheckPriceConfirm">확인</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="checkFileModalForm" tabindex="-1" aria-labelledby="checkFileModalFormLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="checkFileModalFormLabel">등록 실패</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      강의 썸네일과 강의 동영상을 모두 업로드해야 합니다.
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="btnCheckFileConfirm">확인</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="submitModalForm" tabindex="-1" aria-labelledby="submitModalFormLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="submitModalFormLabel">등록 성공</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      작성하신 강의가 정상적으로 등록되었습니다.
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="btnSubmitConfirm">확인</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="cancleModalForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancleModalFormLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fs-5" id="cancleModalFormLabel">작성 취소</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        현재 작성 중인 내용을 지우고 나가시겠습니까?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                        <button type="button" class="btn btn-primary" id="btnCancleConfirm">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <p>team project</p>
+    </footer>
+
+    <script src="../js/writePage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

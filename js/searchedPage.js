@@ -4,7 +4,6 @@ const clickSubject = (subject) => {
     $('.subject').text(subject);
 }
 
-
 $(document).ready(function() {
     let price = $('.price').text("70,000");
 

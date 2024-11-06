@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Book Store</title>
+</head>
+<body>
+    <!-- Header -->
+   >
+   <header class="bg-light text-center py-5">
+        <h1 class="fw-bold ">프로젝트 이름</h1>
+    </header>
+    
+    <main class="container my-4">
+        <nav class="d-flex align-items-center justify-content-center gap-3">
+            <span class="btn btn-outline-secondary">◀</span>
+            <ul class="nav">
+                <li class="nav-item" onClick="clickSubject('강의')">
+                    <a class="nav-link btn btn-light" href="#">강의</a>
+                </li>
+                <li class="nav-item" onClick="clickSubject('교제 판매')">
+                    <a class="nav-link btn btn-light" href="#">교재 판매</a>
+                </li>
+                <li class="nav-item" onClick="clickSubject('나만의 공부TIP')">
+                    <a class="nav-link btn btn-light" href="#">나만의 공부TIP</a>
+                </li>
+                <li class="nav-item" onClick="clickSubject('질의 응답')">
+                    <a class="nav-link btn btn-light" href="#">질의 응답</a>
+                </li>
+                
+              
+            </ul>
+            <span class="btn btn-outline-secondary">▶</span>
+        </nav>
+        <main class="container my-5"style=" max-width: 700px; text-align:center;">
+            <h1 class="text-center"> 교재 판매
+
+
+                
+            </h1>
+
+
+        <!-- Book Details Section -->
+         
+        <section id="book-details" class="d-flex flex-wrap justify-content-center align-items-start gap-4">
+            <div id="book-image">
+                <img src="https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2021/01/07/14/3/ed27846d-b144-4d04-80b9-784e42e0388b.jpg" 
+                alt="책 표지" class="img-fluid rounded shadow-sm" style="max-width: 300px;">
+            </div>
+            <div id="book-info" class="text-start">
+                <h2 class="mb-3">책 제목</h2>
+                <p class="author text-muted">저자: 홍길동</p>
+                <p class="publisher text-muted">출판사: 예시출판사</p>
+                <p class="price fw-bold text-primary">가격: 15,000원</p>
+                <p class="description">이 책은 프로그래밍을 처음 접하는 사람들을 위한 안내서입니다. 코딩 기초부터 심화까지 폭넓게 다루고 있습니다.</p>
+                
+                <button type="button" class="btn btn-success mt-3">구매하기</button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>team project</p>
+    </footer>
+    <!-- Bootstrap JS 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

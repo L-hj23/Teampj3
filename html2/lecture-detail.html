@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>강의 상세페이지</title>
+    <style>
+        .course-header {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .course-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .course-sidebar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .review {
+            margin-top: 20px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('.btn-primary').click(function() {
+            });
+        });
+    </script>
+</head>
+
+<body>
+<header class="bg-light text-center py-5">
+    <h1>강의 상세 페이지</h1>
+</header>
+
+<main class="container my-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="course-header mb-4">
+                <h2 class="course-title">React의 A부터 Z까지 파헤치기</h2>
+                <p class="text-muted">코딩/프론트앤드</p>
+                <p class="text-warning">★★★★★ 4.8 / 5 (120 리뷰)</p>
+                <p><strong>강사:</strong> 홍길동</p>
+                <p><strong>가격:</strong> 70,000원</p>
+            </div>
+
+            <section class="mb-4">
+                <h4>강의 소개</h4>
+                <p>강의 소개 내용</p>
+            </section>
+
+            <section class="mb-4">
+                <h4>강사 정보</h4>
+                <p><strong>홍길동</strong>은 10년 이상의 경력을 가진 프론트엔드 개발자로, 수많은 프로젝트와 강의 경험을 통해 학생들에게 최신 개발 트렌드와 실무 지식을 전달하고 있습니다.</p>
+            </section>
+
+            <section>
+                <h4>리뷰</h4>
+                <div class="review">
+                    <p><strong>김철수</strong> <span class="text-warning">★★★★★</span></p>
+                    <p>정말 유익한 강의였습니다. 실습을 통해 이해하기 쉬웠고, 강사님이 친절하게 설명해주셔서 큰 도움이 되었습니다.</p>
+                </div>
+                <div class="review">
+                    <p><strong>이영희</strong> <span class="text-warning">★★★★☆</span></p>
+                    <p>초보자에게 딱 맞는 강의였습니다. 다만 조금 더 심화된 내용이 있었으면 좋았을 것 같아요.</p>
+                </div>
+                <a href="#" class="text-primary">더 많은 리뷰 보기</a>
+            </section>
+        </div>
+
+        <div class="col-md-4">
+            <div class="course-sidebar mb-4">
+                <h4>강의 정보</h4>
+                <ul class="list-unstyled">
+                    <li><strong>난이도:</strong> 초급</li>
+                    <li><strong>강의 시간:</strong> 총 10시간</li>
+                    <li><strong>강의 수:</strong> 15개</li>
+                    <li><strong>수강 기간:</strong> 1년</li>
+                </ul>
+                <button class="btn btn-primary w-100">수강 신청하기</button>
+            </div>
+            <div class="course-sidebar">
+                <h4>비슷한 강의</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none">Vue.js 마스터 과정</a></li>
+                    <li><a href="#" class="text-decoration-none">Angular 기초부터 심화까지</a></li>
+                    <li><a href="#" class="text-decoration-none">JavaScript 심화 강좌</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>

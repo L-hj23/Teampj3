@@ -1,6 +1,4 @@
 const clickSubject = (subject) => {
-    console.log(subject);
-    $('#part1').removeClass('d-none');
     $('.subject').text(subject);
 }
 

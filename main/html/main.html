@@ -33,6 +33,14 @@
         .lectureWriter {
             font-size: 13px;
         }
+
+        #btnChangeProfileImage, #btnUpload {
+            background-color: white;
+        }
+
+        #btnChangeProfileImage:hover, #btnUpload:hover {
+            background-color: black;
+        }
     </style>
 </head>
 
@@ -70,13 +78,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">My Profile</a>
                             <div class="d-flex align-items-center p-3 card card-body">
-                                <div class="rounded bg-secondary" style="width: 100px; height: 100px;"></div>
+                                <div class="position-relative" style="width: 125px; height: 125px;">
+                                    <div class="rounded bg-secondary w-100 h-100"></div>
+                                    <button id="btnChangeProfileImage" class="btn btn-outline-dark btn-sm position-absolute top-0 end-0">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </div>
                                 <div class="mt-3">
                                     <h6 class="mb-1 text-center">홍길동</h6>
-                                    <p class="text-muted mb-0">안녕하세요! 웹 개발자입니다. React와 Vue.js를 좋아합니다.</p>
-                                </div>
-                                <div class="btn btn-outline-secondary p-2">
-                                    <a href="#">프로필 수정</a>
                                 </div>
                             </div>
                         </li>
@@ -107,8 +116,8 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li> -->
-                                <li><hr class="dropdown-divider">
+                                </li>
+                                <li><hr class="dropdown-divider"> -->
                                 <li><p class="ms-3">수강중인 강의</p></li>
                                 <li style="max-height: 300px; overflow: auto">
                                     <ul>
@@ -292,6 +301,18 @@
             </div>
         </div>
     </nav>
+
+    <form id="changeProfileImageForm" class=" position-absolute top-50 start-50 translate-middle z-3 bg-light border border-3 border-secondary rounded text-center" style="width: 500px; height: 500px;" action="" enctype="multipart/form-data">
+        <div class="position-relative mx-auto mt-4 mb-4" style="width: 250px; height: 250px;">
+            <div class="rounded bg-secondary w-100 h-100"></div>
+            <button id="btnUpload" class="btn btn-outline-dark btn-sm position-absolute top-0 end-0">
+                <i class="bi bi-pencil"></i>
+            </button>
+        </div>
+        <input id="inputFile" class="d-none" type="file" accept="image/*">
+        <button id="btnSaveEdit" type="button">저장</button>
+        <button id="btnCancleEdit" type="button">취소</button>
+    </form>
 
     <main class="container my-4">
         <section id="part1" class="container mt-5">

@@ -35,7 +35,7 @@
 </head>
 <body>
     <header class="bg-light text-center py-5">
-        <h1>학습 강의 관리</h1>
+        <h1>러닝루프</h1>
     </header>
 
     <main class="d-flex align-items-center py-4 bg-body-tertiary justify-content-center">
@@ -46,46 +46,55 @@
                         <div class="find_handy">
                             <h2 class="left-align">회원정보 입력</h2>
                             <hr> 
-                            <div class="check_member_form">
-                                <!-- 이메일 -->
-                                <div class="d-flex align-items-center mb-3">
-                                    <span class="input_txt input-width">
-                                        <input type="text" class="form-control" id="user_email" name="user_email" placeholder="이메일을 입력해주세요. example@gmail.com" title="이메일을 입력해주세요." autocomplete="off">
-                                    </span>
+                            <form action ="" method="get">
+                                <div class="check_member_form">
+                                    <!-- 이메일 -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input_txt input-width">
+                                            <input type="text" class="form-control" id="user_email" name="user_email" placeholder="이메일을 입력해주세요. example@gmail.com" title="이메일을 입력해주세요." autocomplete="off">
+                                        </span>
+                                    </div>
+                                    <!-- 아이디 -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input_txt input-width">
+                                            <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력해주세요." title="아이디를 입력해주세요." autocomplete="off">
+                                        </span>
+                                    </div>
+                                    <!-- 이름  -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input_txt input-width">
+                                            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력해주세요." title="이름을 입력해주세요." autocomplete="off">
+                                        </span>
+                                    </div>
+                                    <!-- 비밀번호 -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input_txt input-width">
+                                            <input type="password" class="form-control" id="user_password" name="user_password" placeholder="비밀번호를 입력해주세요." title="비밀번호를 입력해주세요." autocomplete="off">
+                                        </span>
+                                    </div>
+                                    <!-- 강사여부  -->
+                                    <div class="d-flex gap-3">
+                                        <div calss="form-check">
+                                               <input class="form-check-input"type="radio" name="flexRadioDefault" id="felxRadioDefault1">
+                                               <label class="form-check-lavel" for="flexRadioDefault1">학생</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input"type="radio" name="flexRadioDefault" id="felxRadioDefault1">
+                                                <label class="form-check-lavel" for="flexRadioDefault1">강사</label>
+                                            </div>
+                                        </div>
+                                    
+                                    <!-- 버튼 영역 -->
+                                    <div class="btn_sec d-flex justify-content-between">
+                                        <a class="nav-link btn btn-light" href="#" onClick="clickSubject('JAVASCRIPT')">
+                                            이미 가입을 하신 경우: <span class="text-danger">로그인하기</span>
+                                        </a>
+                                        <button type="submit" class="btn btn-primary" id="btnSearch">확인</button>
+                                    </div>
                                 </div>
-                                <!-- 아이디 -->
-                                <div class="d-flex align-items-center mb-3">
-                                    <span class="input_txt input-width">
-                                        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력해주세요." title="아이디를 입력해주세요." autocomplete="off">
-                                    </span>
-                                </div>
-                                <!-- 이름  -->
-                                <div class="d-flex align-items-center mb-3">
-                                    <span class="input_txt input-width">
-                                        <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력해주세요." title="이름을 입력해주세요." autocomplete="off">
-                                    </span>
-                                </div>
-                                <!-- 비밀번호 -->
-                                <div class="d-flex align-items-center mb-3">
-                                    <span class="input_txt input-width">
-                                        <input type="password" class="form-control" id="user_password" name="user_password" placeholder="비밀번호를 입력해주세요." title="비밀번호를 입력해주세요." autocomplete="off">
-                                    </span>
-                                </div>
-                                <!-- 주소  -->
-                                <div class="d-flex align-items-center mb-3">
-                                    <span class="input_txt input-width">
-                                        <input type="text" class="form-control" id="user_address" name="user_address" placeholder="상세주소를 입력해주세요." title="주소를 입력해주세요." autocomplete="off">
-                                    </span>
-                                </div>
-                
-                                <!-- 버튼 영역 -->
-                                <div class="btn_sec d-flex justify-content-between">
-                                    <a class="nav-link btn btn-light" href="#" onClick="clickSubject('JAVASCRIPT')">
-                                        이미 가입을 하신 경우: <span class="text-danger">로그인하기</span>
-                                    </a>
-                                    <button type="button" class="btn btn-primary" id="btnSearch">확인</button>
-                                </div>
-                            </div>
+
+                            </form>
+                           
                         </div>
                     </div>
                 </div>
